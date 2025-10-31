@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кринж Паша Валентэ | Мемы и обновления Grand Mobile</title>
+    <style>
+        /* Основные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        :root {
+            --primary: #ff00ff;
+            --secondary: #00ffff;
+            --accent: #ffff00;
+            --dark: #0a0a0a;
+            --light: #ffffff;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e, #16213e);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Анимации */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary); }
+            50% { text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Шапка сайта */
+        header {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+            animation: slideIn 1s ease-out;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            margin-right: 10px;
+            animation: spin 10s linear infinite;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 30px;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Главный экран */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s infinite, float 6s infinite;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            animation: fadeIn 2s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        /* Секции */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite;
+        }
+
+        /* Секция мемов */
+        .memes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .meme-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            animation: fadeIn 1s;
+            position: relative;
+        }
+
+        .meme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
+        }
+
+        .meme-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .meme-card:hover .meme-img {
+            transform: scale(1.1);
+        }
+
+        .meme-info {
+            padding: 15px;
+        }
+
+        .meme-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        /* Секция обновлений Grand Mobile */
+        .updates-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .update-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            transition: all 0.3s;
+            animation: fadeIn 1s;
+        }
+
+        .update-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .update-icon {
+            font-size: 3rem;
+            margin-right: 20px;
+            color: var(--secondary);
+            animation: float 3s infinite;
+        }
+
+        .update-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .update-date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Подвал */
+        footer {
+            background: rgba(10, 10, 10, 0.9);
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 2px solid var(--secondary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--dark);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .social-link:hover {
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: var(--light);
+            opacity: 0.7;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .update-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .update-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🤪</div>
+                <div class="logo-text">Кринж Паша Валентэ</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#memes">Мемы</a></li>
+                    <li><a href="#updates">Grand Mobile</a></li>
+                    <li><a href="#about">О нас</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <h1>Кринж Паша Валентэ</h1>
+        <p>Лучшие мемы и последние обновления Grand Mobile в одном месте!</p>
+        <a href="#memes" class="cta-button">Смотреть мемы</a>
+    </section>
+
+    <!-- Секция мемов -->
+    <section id="memes">
+        <h2 class="section-title">Горячие мемы</h2>
+        <div class="memes-grid">
+            <div class="meme-card">
+                <img src="https://via.placeholder.com/300x200/ff00ff/ffffff?text=Мем+1" alt="Мем 1" class="meme-img">
+                <div class="meme-info">
+                    <h3 class="meme-title">Когда код работает с первого раза</h3>
+                    <p>Программисты поймут</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://via.placeholder.com/300x200/00ffff/000000?text=Мем+2" alt="Мем 2" class="meme-img">
+                <div class="meme-info">
+                    <h3 class="meme-title">Мой код vs Код коллеги</h3>
+                    <p>Кто кого?</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://via.placeholder.com/300x200/ffff00/000000?text=Мем+3" alt="Мем 3" class="meme-img">
+                <div class="meme-info">
+                    <h3 class="meme-title">Когда deadline через час</h3>
+                    <p>Паника уровня "Кринж"</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://via.placeholder.com/300x200/ff00ff/ffffff?text=Мем+4" alt="Мем 4" class="meme-img">
+                <div class="meme-info">
+                    <h3 class="meme-title">Паша Валентэ в дикой природе</h3>
+                    <p>Настоящий кринж</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://via.placeholder.com/300x200/00ffff/000000?text=Мем+5" alt="Мем 5" class="meme-img">
+                <div class="meme-info">
+                    <h3 class="meme-title">Grand Mobile прохождения</h3>
+                    <p>Секретные фишки</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://via.placeholder.com/300x200/ffff00/000000?text=Мем+6" alt="Мем 6" class="meme-img">
+                <div class="meme-info">
+                    <h3 class="meme-title">Когда находишь баг в продакшене</h3>
+                    <p>Настоящий ужас</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция обновлений Grand Mobile -->
+    <section id="updates">
+        <h2 class="section-title">Обновления Grand Mobile</h2>
+        <div class="updates-container">
+            <div class="update-card">
+                <div class="update-icon">🎮</div>
+                <div class="update-content">
+                    <h3>Обновление 2.5: Новая карта "Пустынный оазис"</h3>
+                    <div class="update-date">Опубликовано: 15 ноября 2023</div>
+                    <p>Добавлена совершенно новая карта с уникальной механикой песчаных бурь, которые временно ограничивают видимость. Также исправлены баги с загрузкой текстур.</p>
+                </div>
+            </div>
+            <div class="update-card">
+                <div class="update-icon">⚔️</div>
+                <div class="update-content">
+                    <h3>Новое оружие: Плазменный дробовик</h3>
+                    <div class="update-date">Опубликовано: 5 ноября 2023</div>
+                    <p>В игру добавлено эксклюзивное оружие с уникальной механикой заряда. Теперь игроки могут накапливать энергию для более мощного выстрела.</p>
+                </div>
+            </div>
+            <div class="update-card">
+                <div class="update-icon">🎯</div>
+                <div class="update-content">
+                    <h3>Сезонные ивенты: Хэллоуин 2023</h3>
+                    <div class="update-date">Опубликовано: 25 октября 2023</div>
+                    <p>В честь Хэллоуина добавлены тематические скины, задания и специальный режим "Ночь охотников". Соберите все эксклюзивные награды до конца события!</p>
+                </div>
+            </div>
+            <div class="update-card">
+                <div class="update-icon">🛠️</div>
+                <div class="update-content">
+                    <h3>Исправления и улучшения</h3>
+                    <div class="update-date">Опубликовано: 10 октября 2023</div>
+                    <p>Оптимизирована работа серверов, уменьшены задержки в матчмейкинге. Исправлены ошибки, приводящие к вылетам игры на устройствах с малым объемом оперативной памяти.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer id="about">
+        <div class="footer-content">
+            <h2 class="section-title">Кринж Паша Валентэ</h2>
+            <p>Лучший источник мемов и информации об обновлениях Grand Mobile</p>
+            <div class="social-links">
+                <a href="#" class="social-link">VK</a>
+                <a href="#" class="social-link">TG</a>
+                <a href="#" class="social-link">YT</a>
+                <a href="#" class="social-link">IG</a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Кринж Паша Валентэ. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простая анимация появления элементов при скролле
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Анимируем карточки мемов и обновлений
+            const cards = document.querySelectorAll('.meme-card, .update-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
